@@ -1,0 +1,48 @@
+🧠 Why This Is Important
+
+Traditional CRUD:
+Client
+   │
+   ▼
+Database
+
+The same model handles both reads and writes.
+With CQRS + Event Sourcing:
+
+                Client
+                   │
+        ┌──────────┴──────────┐
+        ▼                     ▼
+   Command API           Query API
+        │                     │
+        ▼                     ▼
+  Event Store         Read Database
+
+Every change is stored as an event, and the current state is rebuilt from those events.
+
+Benefits:
+✅ Complete audit history
+✅ Scalable read/write separation
+✅ Easy event replay
+✅ Better performance for large systems
+
+Used By:
+Microsoft Azure
+EventStoreDB
+Axon Framework
+Banking Systems
+E-commerce Platforms
+
+🛠 Tech Stack
+Python
+Flask
+SQLite
+SQLAlchemy
+
+📂 Project Structure
+cqrs-event-sourcing/
+│
+├── app.py
+├── models.py
+├── requirements.txt
+└── README.md
